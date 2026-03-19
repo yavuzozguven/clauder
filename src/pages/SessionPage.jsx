@@ -283,7 +283,20 @@ function StepRow({ step }) {
   }
 
   if (step.type === "tool") {
-    const summaryText = toolDetail(step.name, step.input);
+    const summaryText = (() => {
+      try {
+        const input = typeof step.input === "string" ? JSON.parse(step.input) : step.input;
+        const n = (step.name || "").toLowerCase();
+        const short = (p) => p ? p.split("/").slice(-2).join("/") : "";
+        if (n === "read" || n === "read_file") return short(input?.file_path || input?.path || "");
+        if (n === "write" || n === "write_file") return short(input?.file_path || input?.path || "");
+        if (n === "edit" || n === "multiedit") return short(input?.file_path || input?.path || "");
+        if (n === "bash") return (input?.command || "").slice(0, 72);
+        if (n === "glob") return input?.pattern || "";
+        if (n === "grep") return input?.pattern ? `"${input.pattern}"` : "";
+        return "";
+      } catch { return ""; }
+    })();
     return (
       <div className="step-row">
         <button className="step-row-header" onClick={() => setOpen((x) => !x)}>
