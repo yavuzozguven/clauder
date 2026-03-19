@@ -28,7 +28,11 @@ Go to the [Releases](../../releases/latest) page and download the installer for 
 | Windows | `.msi` |
 | Linux | `.deb` / `.AppImage` |
 
-> **macOS note:** On first launch, right-click the app and select Open (required for unsigned apps).
+> **macOS note:** The app is not signed with an Apple Developer certificate. macOS will show a "damaged" warning on first launch. To fix this, run the following command in Terminal:
+> ```bash
+> xattr -cr /Applications/clauder.app
+> ```
+> Then open the app normally. This only needs to be done once.
 
 ### Build from source
 
