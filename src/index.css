@@ -1,0 +1,131 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root,
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #141414;
+  --bg-card: #252525;
+  --bg-hover: #2e2e2e;
+  --bg-selected: #1e2a1a;
+  --border: #333;
+  --border-light: #3a3a3a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #888;
+  --text-muted: #555;
+  --accent: #e8a000;
+  --accent-red: #e05050;
+  --accent-green: #4caf50;
+  --user-bubble-bg: #2a3a2a;
+  --user-bubble-border: #3a5c30;
+  --sidebar-width: 260px;
+  --titlebar-height: 38px;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f0f0f0;
+  --bg-secondary: #e4e4e4;
+  --bg-card: #ffffff;
+  --bg-hover: #e0e0e0;
+  --bg-selected: #dcedc8;
+  --border: #d0d0d0;
+  --border-light: #c0c0c0;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --text-muted: #999;
+  --accent: #c07800;
+  --accent-red: #c0392b;
+  --accent-green: #2e7d32;
+  --user-bubble-bg: #d4edda;
+  --user-bubble-border: #a8d5b0;
+  --sidebar-width: 260px;
+  --titlebar-height: 38px;
+}
+
+[data-theme="midnight"] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #090d12;
+  --bg-card: #161b22;
+  --bg-hover: #1f2937;
+  --bg-selected: #0d2137;
+  --border: #21262d;
+  --border-light: #30363d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --accent: #58a6ff;
+  --accent-red: #f85149;
+  --accent-green: #3fb950;
+  --user-bubble-bg: #0d2137;
+  --user-bubble-border: #1a4a6e;
+  --sidebar-width: 260px;
+  --titlebar-height: 38px;
+}
+
+[data-theme="mocha"] {
+  --bg-primary: #1e1e2e;
+  --bg-secondary: #181825;
+  --bg-card: #313244;
+  --bg-hover: #45475a;
+  --bg-selected: #1e2d1e;
+  --border: #313244;
+  --border-light: #45475a;
+  --text-primary: #cdd6f4;
+  --text-secondary: #a6adc8;
+  --text-muted: #6c7086;
+  --accent: #cba6f7;
+  --accent-red: #f38ba8;
+  --accent-green: #a6e3a1;
+  --user-bubble-bg: #2a2040;
+  --user-bubble-border: #4a3a6e;
+  --sidebar-width: 260px;
+  --titlebar-height: 38px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow: hidden;
+  height: 100vh;
+  user-select: none;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
