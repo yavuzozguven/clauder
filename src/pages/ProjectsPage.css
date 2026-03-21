@@ -109,21 +109,6 @@
   color: var(--text-muted);
 }
 
-.change-folder-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  color: var(--text-secondary);
-  padding: 4px 8px;
-  border-radius: 5px;
-  transition: background 0.15s;
-}
-
-.change-folder-btn:hover {
-  background: var(--bg-hover);
-  color: var(--text-primary);
-}
 
 .projects-grid {
   display: grid;

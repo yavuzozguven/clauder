@@ -90,13 +90,6 @@ export default function ProjectsPage({ onSelectProject }) {
             <>
               <div className="section-header">
                 <span className="section-title">RECENT PROJECTS</span>
-                <button className="change-folder-btn">
-                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.3" />
-                    <path d="M8 5v3l2 2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-                  </svg>
-                  Change default folder
-                </button>
               </div>
 
               <div className="projects-grid">
