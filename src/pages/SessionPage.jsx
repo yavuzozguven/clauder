@@ -314,6 +314,33 @@ function StepRow({ step }) {
   }
 }
 
+// ── Copy button ──────────────────────────────────────────────────────────────
+
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch { /* ignore */ }
+  };
+  return (
+    <button className={`copy-output-btn${copied ? " copied" : ""}`} onClick={handleCopy} title="Copy output">
+      {copied ? (
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ) : (
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <rect x="5" y="5" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
+          <path d="M3 11V3a1 1 0 0 1 1-1h8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+        </svg>
+      )}
+    </button>
+  );
+}
+
 // ── Assistant group ───────────────────────────────────────────────────────────
 
 function AssistantGroup({ group }) {
@@ -362,6 +389,7 @@ function AssistantGroup({ group }) {
 
       {finalContent && (
         <div className="final-output">
+          <CopyButton text={finalContent} />
           <div
             className="markdown"
             dangerouslySetInnerHTML={{ __html: marked.parse(finalContent) }}

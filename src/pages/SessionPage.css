@@ -649,10 +649,60 @@
 
 /* ── Final output ─────────────────────────── */
 .final-output {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 8px;
   padding: 14px 18px;
+}
+
+/* ── Selectable content ──────────────────── */
+.markdown,
+.step-full-text,
+.step-code,
+.msg-text,
+.user-bubble {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+
+/* ── Copy button ─────────────────────────── */
+.copy-output-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s, color 0.3s;
+  z-index: 1;
+}
+
+.copy-output-btn svg {
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.copy-output-btn:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+.copy-output-btn.copied {
+  color: var(--accent-green, #4caf50);
+  opacity: 1;
+}
+
+.copy-output-btn.copied svg {
+  transform: scale(1.15);
 }
 
 /* ── Markdown styles ─────────────────────── */

@@ -1,0 +1,314 @@
+/* ── Chat layout ──────────────────────────── */
+.chat-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-primary);
+}
+
+/* ── Top bar ──────────────────────────────── */
+.chat-topbar {
+  height: var(--titlebar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.chat-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+  color: var(--text-secondary);
+}
+
+.cwd-input {
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 3px 8px;
+  flex: 1;
+  outline: none;
+}
+
+.cwd-input:focus {
+  border-color: var(--accent);
+}
+
+.cwd-display {
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px 0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cwd-display:hover {
+  color: var(--text-primary);
+}
+
+.chat-session-badge {
+  font-size: 10px;
+  color: var(--accent-green);
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.25);
+  border-radius: 4px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+/* ── Welcome screen ──────────────────────── */
+.chat-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  gap: 8px;
+}
+
+.chat-welcome-icon {
+  width: 48px;
+  height: 48px;
+  background: #3d6b3d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #90d090;
+  margin-bottom: 12px;
+}
+
+.chat-welcome h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.chat-welcome p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.chat-welcome-hint {
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ── Thinking indicator ──────────────────── */
+.chat-thinking {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.chat-thinking-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.chat-thinking-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.chat-thinking-dots span:nth-child(2) { animation-delay: 0.15s; }
+.chat-thinking-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+.chat-cancel-btn {
+  font-size: 11px;
+  color: var(--accent-red);
+  background: none;
+  border: 1px solid var(--accent-red);
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: background 0.15s;
+}
+
+.chat-cancel-btn:hover {
+  background: rgba(224, 80, 80, 0.1);
+}
+
+/* ── Error states ─────────────────────────── */
+.chat-error-msg {
+  padding: 8px 24px;
+  font-size: 12px;
+  color: var(--accent-red);
+}
+
+.chat-error-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  font-size: 11px;
+  color: var(--accent-red);
+  background: rgba(224, 80, 80, 0.08);
+  border-top: 1px solid rgba(224, 80, 80, 0.2);
+}
+
+.chat-error-bar button {
+  margin-left: auto;
+  color: var(--accent-red);
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ── Input area ───────────────────────────── */
+.chat-input-area {
+  padding: 12px 24px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.chat-input-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 8px 8px 8px 14px;
+  transition: border-color 0.15s;
+}
+
+.chat-input-wrap:focus-within {
+  border-color: var(--accent);
+}
+
+.chat-input {
+  flex: 1;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: 1.5;
+  max-height: 120px;
+  min-height: 20px;
+}
+
+.chat-input::placeholder {
+  color: var(--text-muted);
+}
+
+.chat-input:disabled {
+  opacity: 0.5;
+}
+
+.chat-send-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background: #3d6b3d;
+  color: #90d090;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  border: none;
+}
+
+.chat-send-btn:hover:not(:disabled) {
+  background: #4a7f4a;
+}
+
+.chat-send-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ── Selectable content ──────────────────── */
+.markdown,
+.step-full-text,
+.step-code,
+.msg-text,
+.user-bubble {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+
+/* ── Copy button ─────────────────────────── */
+.final-output {
+  position: relative;
+}
+
+.copy-output-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s, color 0.3s;
+  z-index: 1;
+}
+
+.copy-output-btn svg {
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.copy-output-btn:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+.copy-output-btn.copied {
+  color: var(--accent-green, #4caf50);
+  opacity: 1;
+}
+
+.copy-output-btn.copied svg {
+  transform: scale(1.15);
+}
